@@ -2905,5 +2905,72 @@
             }, 3000);
         }
     </script>
+  <script type="module">
+  const cdn = "https://www.gstatic" + ".com/firebasejs/13.4.0/";
+  const { initializeApp } = await import(cdn + "firebase-app.js");
+  const { getFirestore, doc, setDoc, onSnapshot } = await import(cdn + "firebase-firestore.js");
+  const firebaseConfig = {
+    apiKey: "AIzaSyDGoWyE8XKgewGFjyqtgY5oRggHYw4XxgA",
+    authDomain: "outline-designs" + ".firebaseapp.com",
+    projectId: "outline-designs",
+    storageBucket: "outline-designs.firebasestorage.app",
+    messagingSenderId: "470931025415",
+    appId: "1:470931025415:web:e458ae9a9bddbba4f1c4a2",
+    measurementId: "G-LCQ0TZ1QCX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const siteDocRef = doc(db, "website", "outlineData");
+
+  let isReceivingFromCloud = false;
+
+  // 1. مراقبة دالة الحفظ الأصلية وربطها بالسحابة تلقائياً
+  const hookSaveState = () => {
+    if (typeof window.saveState === "function" && !window.saveState._firebaseHooked) {
+      const originalSaveState = window.saveState;
+      window.saveState = function(...args) {
+        const result = originalSaveState.apply(this, args);
+        if (!isReceivingFromCloud && window.appState) {
+          // إزالة البيانات الضخمة جداً إن وجدت لتجنب تجاوز حد 1MB في Firestore
+          const cleanState = JSON.parse(JSON.stringify(window.appState));
+          setDoc(siteDocRef, cleanState)
+            .then(() => console.log("✅ تم مزامنة التعديلات مع Firebase بنجاح"))
+            .catch((err) => {
+              console.error("❌ خطأ في المزامنة:", err);
+              if (typeof showToast === "function") {
+                showToast("تنبيه: حجم الصور المرفوعة كبير جداً للحفظ السحابي، استخدم روابط الصور (URL)");
+              }
+            });
+        }
+        return result;
+      };
+      window.saveState._firebaseHooked = true;
+    }
+  };
+
+  // تفعيل المراقبة فور تحميل الصفحة
+  window.addEventListener("DOMContentLoaded", hookSaveState);
+  setTimeout(hookSaveState, 1000);
+
+  // 2. جلب البيانات وتحديث الموقع تلقائياً عند أي زائر أو عند إجراء تعديل
+  onSnapshot(siteDocRef, (docSnap) => {
+    if (docSnap.exists() && window.appState) {
+      isReceivingFromCloud = true;
+      const cloudData = docSnap.data();
+      
+      // دمج البيانات القادمة من السحابة مع حالة التطبيق الحالية
+      Object.assign(window.appState, cloudData);
+      
+      // حفظ نسخة محلية سريعة وتحديث واجهة الموقع
+      if (typeof window.saveState === "function") window.saveState();
+      if (typeof renderAll === "function") renderAll();
+      if (typeof renderLogos === "function") renderLogos();
+      if (typeof renderAdminProjectsGrid === "function") renderAdminProjectsGrid();
+      
+      setTimeout(() => { isReceivingFromCloud = false; }, 300);
+    }
+  });
+</script> 
 </body>
 </html>
