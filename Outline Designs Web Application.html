@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outline Designs | Architecture & Interior Design</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FDFBF7',
+                            100: '#FBF7EF',
+                            200: '#F7EEDF',
+                            300: '#EFE0C1',
+                            400: '#E5CD99',
+                            500: 'var(--accent-gold, #D4AF37)',
+                            600: '#B8860B',
+                            700: '#8C6208',
+                            800: '#5E4205',
+                            900: '#332302',
+                        },
+                        dark: {
+                            950: '#08080A',
+                            900: '#101014',
+                            850: '#16161C',
+                            800: '#202026',
+                            700: '#2E2E36',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                        enHead: ['Playfair Display', 'serif'],
+                        enBody: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --accent-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            background-color: #08080A;
+            color: #F5F5F0;
+            overflow-x: hidden;
+        }
+
+        html[lang="en"] body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] .font-tajawal {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0C2 0%, var(--accent-gold) 50%, #8C6208 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(16, 16, 20, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2E36;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Before/After Split Slider */
+        .ba-slider-container {
+            position: relative;
+            user-select: none;
+            touch-action: pan-y;
+            overflow: hidden;
+        }
+
+        .ba-after-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-before-img-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+            z-index: 10;
+            border-right: 2px solid var(--accent-gold);
+        }
+
+        html[dir="ltr"] .ba-before-img-wrapper {
+            border-right: none;
+            border-left: 2px solid var(--accent-gold);
+        }
+
+        .ba-before-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 40px;
+            margin-left: -20px;
+            z-index: 20;
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ba-handle-line {
+            width: 3px;
+            height: 100%;
+            background: var(--accent-gold);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+        }
+
+        .ba-handle-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #08080A;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            position: absolute;
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-stone-200 min-h-screen flex flex-col">
+
+    <!-- PUBLIC CLIENT NAVBAR -->
+    <header id="client-navbar" class="sticky top-0 z-40 bg-dark-950/90 backdrop-blur-md border-b border-stone-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo & Title -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div id="nav-logo-wrapper" class="w-12 h-12 rounded-full border border-gold-500/40 p-0.5 bg-dark-900 flex items-center justify-center overflow-hidden group-hover:border-gold-400 transition">
+                        <!-- Rendered via JS -->
+                    </div>
+                    <div>
+                        <span id="nav-company-name" class="text-lg font-black tracking-tight text-white group-hover:text-gold-400 transition font-tajawal">Outline designs</span>
+                        <span class="block text-[10px] text-gold-500 font-medium tracking-widest uppercase" data-i18n="sub_brand">Architecture & Interior</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold" id="main-nav-links">
+                    <a href="#hero" data-i18n="nav_home" class="text-white hover:text-gold-400 transition py-1">الرئيسية</a>
+                    <a href="#profile" data-i18n="nav_profile" class="text-stone-300 hover:text-gold-400 transition py-1">البروفايل</a>
+                    <a href="#beforeAfter" data-i18n="nav_before_after" class="text-stone-300 hover:text-gold-400 transition py-1">قبل وبعد</a>
+                    <a href="#portfolio" data-i18n="nav_portfolio" class="text-stone-300 hover:text-gold-400 transition py-1">معرض الأعمال</a>
+                    <a href="#calculator" data-i18n="nav_calculator" class="text-stone-300 hover:text-gold-400 transition py-1">حاسبة التكلفة</a>
+                    <a href="#booking" data-i18n="nav_contact" class="text-stone-300 hover:text-gold-400 transition py-1">حجز معاينة</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="lang-switcher-btn" onclick="window.toggleLanguage()" class="bg-dark-900 border border-gold-500/40 hover:border-gold-400 text-gold-400 hover:bg-gold-500 hover:text-stone-950 font-bold px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 transition shadow-md">
+                        <i class="fa-solid fa-globe text-sm"></i>
+                        <span id="lang-btn-label">English</span>
+                    </button>
+
+                    <a id="nav-wa-btn" href="https://wa.me/201211247424" target="_blank" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-amber-400 hover:to-gold-500 text-stone-950 font-black px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-lg flex items-center gap-2 transition transform hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span class="hidden sm:inline" data-i18n="btn_whatsapp">تواصل عبر الواتساب</span>
+                        <span class="sm:hidden">واتساب</span>
+                    </a>
+
+                    <a id="nav-phone-btn" href="tel:01211247424" class="hidden md:flex text-xs text-stone-300 hover:text-gold-400 transition items-center gap-2 bg-dark-900 border border-stone-800 px-3.5 py-2.5 rounded-xl">
+                        <i class="fa-solid fa-phone text-gold-400"></i>
+                        <span dir="ltr" class="font-mono font-bold" id="nav-phone-val">01211247424</span>
+                    </a>
+
+                    <button id="mobile-menu-btn" onclick="window.toggleMobileMenu()" class="lg:hidden text-stone-300 hover:text-gold-400 text-2xl focus:outline-none p-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark-900 border-b border-gold-500/20 px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col gap-4 text-base font-semibold">
+                <a href="#hero" onclick="window.toggleMobileMenu()" data-i18n="nav_home" class="text-white hover:text-gold-400">الرئيسية</a>
+                <a href="#profile" onclick="window.toggleMobileMenu()" data-i18n="nav_profile" class="text-stone-300 hover:text-gold-400">البروفايل</a>
+                <a href="#beforeAfter" onclick="window.toggleMobileMenu()" data-i18n="nav_before_after" class="text-stone-300 hover:text-gold-400">قبل وبعد التشطيب</a>
+                <a href="#portfolio" onclick="window.toggleMobileMenu()" data-i18n="nav_portfolio" class="text-stone-300 hover:text-gold-400">معرض الأعمال</a>
+                <a href="#calculator" onclick="window.toggleMobileMenu()" data-i18n="nav_calculator" class="text-gold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-calculator"></i> <span data-i18n="nav_calculator">حاسبة التكلفة التقديرية</span>
+                </a>
+                <a href="#booking" onclick="window.toggleMobileMenu()" data-i18n="nav_contact" class="text-stone-300 hover:text-gold-400">طلب معاينة موقع</a>
+                
+                <button onclick="window.toggleLanguage()" class="w-full text-center bg-dark-800 text-gold-400 border border-gold-500/30 py-2.5 rounded-xl flex items-center justify-center gap-2 text-xs font-bold mt-2">
+                    <i class="fa-solid fa-globe"></i> <span id="mobile-lang-btn-label">Switch to English</span>
+                </button>
+
+                <hr class="border-stone-800 my-1">
+                <a id="mobile-call-btn" href="tel:01211247424" class="w-full text-center bg-dark-800 text-stone-200 border border-stone-700 py-3 rounded-xl flex items-center justify-center gap-2 text-sm font-bold">
+                    <i class="fa-solid fa-phone text-gold-400"></i> <span data-i18n="lbl_call_us">اتصل بنا:</span> <span class="font-mono" id="mobile-phone-val">01211247424</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- DYNAMICALLY RENDERED CLIENT PAGE SECTIONS WRAPPER -->
+    <main id="client-sections-wrapper" class="flex-grow">
+        <!-- Sections will be injected dynamically according to user/admin configuration -->
+    </main>
+
+    <!-- PUBLIC FOOTER -->
+    <footer class="bg-dark-950 border-t border-stone-800 py-12 text-stone-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
+                
+                <div class="flex items-center gap-3">
+                    <div id="footer-logo-wrapper" class="w-10 h-10 rounded-full border border-gold-500/40 p-0.5 bg-dark-900 flex items-center justify-center">
+                        <!-- JS injected -->
+                    </div>
+                    <div>
+                        <span class="text-sm font-bold text-white block" id="footer-company-name">Outline designs</span>
+                        <span class="text-[10px] text-stone-500" id="footer-address-val">Fawzi Moaz St., Smouha, Alexandria, Egypt</span>
+                    </div>
+                </div>
+
+                <!-- Secret Trigger on Copyright Text (5 Clicks) -->
+                <div class="cursor-pointer select-none py-2 hover:text-gold-400 transition" onclick="window.handleSecretFooterClick()" title="Outline Architecture Portal">
+                    <p>© 2026 Outline Designs. All Rights Reserved.</p>
+                    <p class="text-[10px] text-stone-600 mt-0.5">Architecture | Construction | Interior Design</p>
+                </div>
+
+                <div class="flex items-center gap-4 text-lg">
+                    <a href="https://wa.me/201211247424" target="_blank" class="w-9 h-9 rounded-full bg-dark-900 border border-stone-800 text-stone-300 hover:text-gold-400 hover:border-gold-500 flex items-center justify-center transition">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:01211247424" class="w-9 h-9 rounded-full bg-dark-900 border border-stone-800 text-stone-300 hover:text-gold-400 hover:border-gold-500 flex items-center justify-center transition">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                    <a href="#admin" class="w-9 h-9 rounded-full bg-dark-900 border border-stone-800 text-stone-600 hover:text-gold-400 hover:border-gold-500 flex items-center justify-center transition" title="لوحة التحكم">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT DETAIL MODAL -->
+    <div id="project-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass-card max-w-2xl w-full rounded-3xl overflow-hidden border border-gold-500/30 max-h-[90vh] flex flex-col shadow-2xl">
+            <div class="relative h-64 sm:h-80 bg-stone-950 flex-shrink-0">
+                <img id="modal-img" src="" class="w-full h-full object-cover">
+                <button onclick="window.closeProjectModal()" class="absolute top-4 right-4 bg-black/70 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-gold-500 hover:text-black transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="absolute bottom-4 right-4 bg-gold-500 text-stone-950 font-black text-xs px-3 py-1 rounded-full uppercase" id="modal-tag">
+                    مشروع مميز
+                </div>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4">
+                <h3 class="text-xl sm:text-2xl font-bold text-white" id="modal-title">عنوان المشروع</h3>
+                <p class="text-sm text-stone-300 leading-relaxed" id="modal-desc">التفاصيل...</p>
+                <div class="bg-dark-950 p-4 rounded-2xl border border-stone-800 space-y-2 text-xs text-stone-300">
+                    <p><strong class="text-gold-400">الخامات:</strong> <span id="modal-materials">خامات فندقية</span></p>
+                    <p><strong class="text-gold-400">مدة التنفيذ:</strong> <span id="modal-duration">30 يوم</span></p>
+                </div>
+                <a id="modal-wa-btn" href="#" target="_blank" class="w-full bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold py-3 rounded-xl text-center block text-sm transition">
+                    <i class="fa-brands fa-whatsapp mr-1"></i> طلب تنفيذ مشروع مماثل
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STANDALONE VISUAL PAGE BUILDER & ADMIN PORTAL -->
+    <div id="admin-portal" class="fixed inset-0 z-50 bg-dark-950 flex flex-col hidden overflow-y-auto">
+        
+        <!-- Admin Header Bar -->
+        <div class="bg-dark-900 border-b border-stone-800 py-4 px-6 sticky top-0 z-30 flex items-center justify-between shadow-2xl">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gold-500 text-stone-950 font-black flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <div>
+                    <h2 class="text-base font-bold text-white flex items-center gap-2">
+                        Outline Visual Page Builder & CMS
+                        <span class="bg-gold-500/20 text-gold-400 border border-gold-500/40 text-[10px] font-mono px-2 py-0.5 rounded-full">Pro v3.0</span>
+                    </h2>
+                    <span class="text-[11px] text-stone-400">التحكم في ترتيب الأقسام والأسعار والمحتوى المباشر</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#" onclick="window.closeAdmin()" class="bg-gradient-to-r from-gold-500 to-amber-600 hover:from-amber-400 hover:to-gold-500 text-stone-950 font-black text-xs px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg">
+                    <i class="fa-solid fa-eye"></i> العودة لصفحة العميل / View Live Site
+                </a>
+            </div>
+        </div>
+
+        <!-- Admin Login Screen -->
+        <div id="admin-login-screen" class="flex-grow flex items-center justify-center p-4">
+            <div class="glass-card max-w-md w-full p-8 rounded-3xl border border-gold-500/30 text-center space-y-6 shadow-2xl">
+                <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">تسجيل الدخول لوحة التحكم</h3>
+                    <p class="text-xs text-stone-400 mt-1">كلمة المرور الافتراضية: <code class="text-gold-400 font-mono">1234</code></p>
+                </div>
+                <form onsubmit="window.handleAdminLogin(event)" class="space-y-4">
+                    <input type="password" id="admin-pass-input" placeholder="اكتب كلمة المرور..." required class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-center text-white focus:border-gold-500 focus:outline-none font-mono tracking-widest text-lg">
+                    <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold py-3.5 rounded-xl text-sm transition shadow-lg">
+                        دخول لوحة التحكم
+                    </button>
+                </form>
+                <button onclick="window.quickDemoLogin()" class="text-xs text-stone-400 hover:text-gold-400 underline block mx-auto">
+                    دخول سريع للتجربة (Demo Auto-Login)
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Content -->
+        <div id="admin-dashboard-content" class="flex-grow p-4 sm:p-8 max-w-7xl mx-auto w-full space-y-8 hidden">
+            
+            <!-- Dashboard Sub-Tabs -->
+            <div class="flex flex-wrap gap-2 border-b border-stone-800 pb-4" id="admin-tabs-nav">
+                <button class="admin-tab-btn active bg-gold-500 text-stone-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('builder', this)">
+                    <i class="fa-solid fa-layer-group"></i> ترتيب وبناء الصفحة (Page Builder)
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('brand', this)">
+                    <i class="fa-solid fa-palette"></i> الهوية واللوجو والألوان
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('profile', this)">
+                    <i class="fa-solid fa-address-card"></i> البروفايل والتواصل
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('projects', this)">
+                    <i class="fa-solid fa-photo-film"></i> إدارة المشاريع وقبل وبعد
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('pricing', this)">
+                    <i class="fa-solid fa-tags"></i> الأسعار والعروض
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 relative" onclick="window.switchAdminTab('leads', this)">
+                    <i class="fa-solid fa-inbox"></i> طلبات المعاينة الواردة
+                    <span id="leads-count-badge" class="bg-red-500 text-white text-[10px] font-mono px-2 py-0.2 rounded-full hidden">0</span>
+                </button>
+                <button class="admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2" onclick="window.switchAdminTab('backup', this)">
+                    <i class="fa-solid fa-database"></i> النسخ الاحتياطي والضبط
+                </button>
+            </div>
+
+            <!-- TAB 1: VISUAL PAGE BUILDER & SECTION REORDERING -->
+            <div id="admin-tab-builder" class="admin-tab-content space-y-6">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-stone-800 pb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold-400 flex items-center gap-2">
+                                <i class="fa-solid fa-up-down-left-right"></i> مدير الأقسام والترتيب المباشر (Drag & Reorder Engine)
+                            </h3>
+                            <p class="text-xs text-stone-400 mt-1">يمكنك ترتيب ظهور الأقسام وإخفائها أو تغيير عناوينها لتنعكس فوراً على صفحة العميل!</p>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Sections List -->
+                    <div class="space-y-3" id="admin-sections-list">
+                        <!-- Rendered JS -->
+                    </div>
+
+                    <hr class="border-stone-800">
+
+                    <!-- Custom Section Creator Form -->
+                    <div class="bg-dark-950 p-6 rounded-2xl border border-stone-800 space-y-4">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-square-plus text-gold-400"></i> إضافة قسم مخصص جديد (Custom Section Builder)
+                        </h4>
+
+                        <form onsubmit="window.handleAddCustomSection(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">عنوان القسم (عربي) *</label>
+                                    <input type="text" id="cs-title-ar" required placeholder="مثال: لماذا تختار أوتلاين؟" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">Section Title (English) *</label>
+                                    <input type="text" id="cs-title-en" required placeholder="e.g. Why Choose Outline?" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">محتوى / نص القسم (عربي)</label>
+                                    <textarea id="cs-body-ar" rows="3" placeholder="اكتب وصف القسم هنا..." class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2 text-xs text-white"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">Body Text (English)</label>
+                                    <textarea id="cs-body-en" rows="3" placeholder="Write description here..." class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2 text-xs text-white font-mono"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">نمط التصميم (Layout)</label>
+                                    <select id="cs-layout" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white">
+                                        <option value="banner">بانر بعرض كامل (Centered Banner)</option>
+                                        <option value="right">صورة على اليمين / نص يسار</option>
+                                        <option value="left">صورة على اليسار / نص يمين</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">صورة مرافقة (اختياري)</label>
+                                    <input type="file" accept="image/*" onchange="window.handleCustomSecImg(this)" class="w-full text-xs text-stone-400">
+                                    <input type="hidden" id="cs-img-data">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-stone-300 mb-1">نص زر التفاعل (CTA Button)</label>
+                                    <input type="text" id="cs-cta-text" placeholder="مثال: احجز الآن" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md">
+                                إضافة القسم للصفحة فوراً
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: BRAND & THEME & LOGO -->
+            <div id="admin-tab-brand" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="text-lg font-bold text-gold-400 border-b border-stone-800 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> الهوية البصرية وشعار الشركة واللون
+                    </h3>
+
+                    <!-- Color Accent Presets -->
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">اختر اللون الرئيسي للهوية (Accent Color Theme):</label>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="window.setThemeColor('#D4AF37')" class="px-4 py-2 rounded-xl text-xs font-bold bg-dark-900 border border-amber-500 text-amber-400 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#D4AF37]"></span> ذهبي كلاسيك (Classic Gold)
+                            </button>
+                            <button onclick="window.setThemeColor('#C87D55')" class="px-4 py-2 rounded-xl text-xs font-bold bg-dark-900 border border-orange-500 text-orange-400 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#C87D55]"></span> نحاسي دافئ (Warm Copper)
+                            </button>
+                            <button onclick="window.setThemeColor('#E5C158')" class="px-4 py-2 rounded-xl text-xs font-bold bg-dark-900 border border-yellow-500 text-yellow-300 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#E5C158]"></span> شامبين فاخر (Champagne)
+                            </button>
+                            <button onclick="window.setThemeColor('#10B981')" class="px-4 py-2 rounded-xl text-xs font-bold bg-dark-900 border border-emerald-500 text-emerald-400 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#10B981]"></span> زمردي ملكي (Emerald Luxury)
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="border-stone-800">
+
+                    <!-- Logo Upload -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 mb-2">رفع لوجو جديد مع الضغط التلقائي (Compressed Image Upload):</label>
+                            <input type="file" accept="image/*" onchange="window.handleLogoFile(this)" class="w-full bg-dark-950 border border-stone-800 text-xs text-stone-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-gold-500 file:text-stone-950 file:font-bold hover:file:bg-gold-400 p-2 rounded-xl">
+                            
+                            <div class="mt-4">
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">أو إدخال رابط الصورة مباشرة (Logo URL):</label>
+                                <input type="text" id="adm-logo-url" placeholder="https://..." class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white">
+                                <button onclick="window.applyLogoUrl()" class="mt-2 bg-dark-800 border border-stone-700 text-stone-200 text-xs font-bold px-4 py-2 rounded-xl hover:text-gold-400 transition">تطبيق الرابط</button>
+                            </div>
+                        </div>
+
+                        <div class="text-center bg-dark-950 p-6 rounded-2xl border border-stone-800">
+                            <span class="text-xs text-stone-400 block mb-3">المعاينة الحية للشعار الحالي:</span>
+                            <div id="adm-logo-preview" class="w-24 h-24 rounded-full border-2 border-gold-500 p-1 bg-black mx-auto flex items-center justify-center overflow-hidden">
+                                <!-- JS -->
+                            </div>
+                            <button onclick="window.resetToDefaultLogo()" class="mt-4 text-xs text-stone-400 hover:text-red-400 underline">إعادة للوجو الهندسي الافتراضي</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: PROFILE & CONTACT -->
+            <div id="admin-tab-profile" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8">
+                    <h3 class="text-lg font-bold text-gold-400 mb-6 border-b border-stone-800 pb-3">تعديل بيانات البروفايل وأرقام التواصل بفرع سموحة</h3>
+                    
+                    <form onsubmit="window.handleSaveProfile(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">اسم الشركة (عربي)</label>
+                                <input type="text" id="adm-company-name" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">Company Name (English)</label>
+                                <input type="text" id="adm-company-name-en" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">اسم المستخدم (Instagram)</label>
+                                <input type="text" id="adm-username" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">المتابعون (Followers)</label>
+                                <input type="text" id="adm-followers" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">المنشورات (Posts)</label>
+                                <input type="text" id="adm-posts" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">الهاتف الرئيسي (سموحة)</label>
+                                <input type="text" id="adm-phone1" dir="ltr" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">الهاتف الثاني</label>
+                                <input type="text" id="adm-phone2" dir="ltr" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-white font-mono">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 mb-1">وصف البروفايل (Bio Description)</label>
+                            <textarea id="adm-bio-desc" rows="2" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2 text-xs text-white"></textarea>
+                        </div>
+
+                        <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-6 py-3 rounded-xl text-xs transition">حفظ التغييرات</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 4: PROJECTS & BEFORE/AFTER -->
+            <div id="admin-tab-projects" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="text-lg font-bold text-gold-400 border-b border-stone-800 pb-3">إدارة مشاريع المعرض وسلايدر قبل وبعد</h3>
+
+                    <!-- Before After Images Editor -->
+                    <form onsubmit="window.handleSaveBeforeAfter(event)" class="space-y-4 bg-dark-950 p-5 rounded-2xl border border-stone-800">
+                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">تعديل صور وقيم سلايدر "قبل وبعد"</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">صورة قبل التشطيب (Before Image):</label>
+                                <input type="file" accept="image/*" onchange="window.handleBAFile('before', this)" class="w-full text-xs text-stone-400">
+                                <input type="text" id="adm-ba-before-url" placeholder="رابط الصورة..." class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-xs text-white mt-1">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">صورة بعد التشطيب (After Image):</label>
+                                <input type="file" accept="image/*" onchange="window.handleBAFile('after', this)" class="w-full text-xs text-stone-400">
+                                <input type="text" id="adm-ba-after-url" placeholder="رابط الصورة..." class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-xs text-white mt-1">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-5 py-2 rounded-xl text-xs transition">حفظ صور المقارنة</button>
+                    </form>
+
+                    <hr class="border-stone-800">
+
+                    <!-- Projects Manager List & Add Form -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-bold text-white">المشاريع الحالية بالمعرض</h4>
+                            <button onclick="window.toggleAddProjectModal()" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-4 py-2 rounded-xl text-xs transition">
+                                <i class="fa-solid fa-plus mr-1"></i> إضافة مشروع جديد
+                            </button>
+                        </div>
+
+                        <div id="admin-projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- JS Rendered -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: PRICING & OFFERS -->
+            <div id="admin-tab-pricing" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="text-lg font-bold text-gold-400 border-b border-stone-800 pb-3">أسعار باقات التشطيب وشريط العروض</h3>
+
+                    <!-- Offer Banner Editor -->
+                    <form onsubmit="window.handleSaveOfferBanner(event)" class="space-y-4 bg-dark-950 p-5 rounded-2xl border border-stone-800">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">إعدادات شريط العروض العلوي (Promo Banner)</h4>
+                            <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-stone-300">
+                                <input type="checkbox" id="adm-offer-active" class="accent-gold-500 w-4 h-4"> تفعيل الشريط
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">نص العرض (عربي)</label>
+                                <input type="text" id="adm-offer-text-ar" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-xs text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 mb-1">Offer Text (English)</label>
+                                <input type="text" id="adm-offer-text-en" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-xs text-white font-mono">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-5 py-2 rounded-xl text-xs transition">حفظ العرض</button>
+                    </form>
+
+                    <hr class="border-stone-800">
+
+                    <!-- Pricing Rates Form -->
+                    <form onsubmit="window.handleSavePricing(event)" class="space-y-4">
+                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">تعديل سعر المتر بالجنيه المصري (EGP / m²)</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="bg-dark-950 p-4 rounded-2xl border border-stone-800 space-y-2">
+                                <label class="block text-xs font-bold text-white">الباقة الأولى (Modern Luxe)</label>
+                                <input type="number" id="adm-p1-price" required class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-sm text-gold-400 font-mono font-bold">
+                                <input type="text" id="adm-p1-desc" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-1.5 text-xs text-stone-300">
+                            </div>
+
+                            <div class="bg-dark-950 p-4 rounded-2xl border border-stone-800 space-y-2">
+                                <label class="block text-xs font-bold text-white">الباقة الثانية (Ultra Luxury)</label>
+                                <input type="number" id="adm-p2-price" required class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-sm text-gold-400 font-mono font-bold">
+                                <input type="text" id="adm-p2-desc" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-1.5 text-xs text-stone-300">
+                            </div>
+
+                            <div class="bg-dark-950 p-4 rounded-2xl border border-stone-800 space-y-2">
+                                <label class="block text-xs font-bold text-white">الباقة الثالثة (VIP Signature)</label>
+                                <input type="number" id="adm-p3-price" required class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-2 text-sm text-gold-400 font-mono font-bold">
+                                <input type="text" id="adm-p3-desc" class="w-full bg-dark-900 border border-stone-800 rounded-xl px-3 py-1.5 text-xs text-stone-300">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-6 py-3 rounded-xl text-xs transition">حفظ الأسعار الجديدة</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 6: CLIENT LEADS -->
+            <div id="admin-tab-leads" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="text-lg font-bold text-gold-400 border-b border-stone-800 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-inbox"></i> طلبات المعاينة والاستشارات الواردة
+                    </h3>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs text-stone-300">
+                            <thead class="bg-dark-950 text-gold-400 font-bold uppercase border-b border-stone-800">
+                                <tr>
+                                    <th class="p-3">الاسم</th>
+                                    <th class="p-3">الهاتف</th>
+                                    <th class="p-3">المنطقة</th>
+                                    <th class="p-3">الخدمة</th>
+                                    <th class="p-3">التاريخ</th>
+                                    <th class="p-3 text-center">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-leads-table" class="divide-y divide-stone-800">
+                                <!-- JS Rendered -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: BACKUP & SETTINGS -->
+            <div id="admin-tab-backup" class="admin-tab-content space-y-6 hidden">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="text-lg font-bold text-gold-400 border-b border-stone-800 pb-3">إعدادات الأمان والنسخ الاحتياطي (JSON Export / Import)</h3>
+
+                    <!-- Password Change -->
+                    <form onsubmit="window.handleChangePassword(event)" class="space-y-4 max-w-md">
+                        <h4 class="text-xs font-bold text-white uppercase">تغيير كلمة مرور لوحة التحكم</h4>
+                        <div>
+                            <input type="text" id="adm-new-pass" placeholder="اكتب كلمة المرور الجديدة..." required class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-2.5 text-xs text-gold-400 font-mono font-bold">
+                        </div>
+                        <button type="submit" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-5 py-2 rounded-xl text-xs transition">حفظ كلمة المرور</button>
+                    </form>
+
+                    <hr class="border-stone-800">
+
+                    <!-- Backup / Restore Buttons -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold text-white uppercase">تصدير واستيراد البيانات (Export / Restore)</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="window.exportBackupJSON()" class="bg-dark-900 border border-gold-500/40 hover:border-gold-400 text-gold-400 px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-download"></i> تصدير جميع البيانات (Export JSON Backup)
+                            </button>
+
+                            <label class="bg-dark-900 border border-stone-700 hover:border-stone-500 text-stone-200 px-5 py-2.5 rounded-xl text-xs font-bold cursor-pointer flex items-center gap-2">
+                                <i class="fa-solid fa-upload"></i> استعادة من ملف (Import JSON)
+                                <input type="file" accept=".json" onchange="window.importBackupJSON(this)" class="hidden">
+                            </label>
+
+                            <button onclick="window.resetToFactoryDefaults()" class="bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2">
+                                <i class="fa-solid fa-rotate-left"></i> إعادة ضبط المصنع (Factory Reset)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 bg-gold-500 text-stone-950 px-5 py-3 rounded-2xl font-bold text-xs shadow-2xl transition transform translate-y-20 opacity-0 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toast-msg">تم الحفظ بنجاح</span>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION ENGINE -->
+    <script type="module">
+        // Firebase Import Setup
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global State & Storage Fallback
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'outline-designs-app';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db = null;
+        let auth = null;
+        let isFirebaseAvailable = false;
+
+        if (firebaseConfig) {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                isFirebaseAvailable = true;
+            } catch(e) {
+                console.warn("Using Local Storage Mode:", e);
+            }
+        }
+
+        // BILINGUAL TRANSLATION DICTIONARY
+        window.currentLang = localStorage.getItem('outline_lang') || 'ar';
+
+        const dictionary = {
+            ar: {
+                nav_home: "الرئيسية",
+                nav_profile: "البروفايل",
+                nav_before_after: "قبل وبعد",
+                nav_portfolio: "معرض الأعمال",
+                nav_calculator: "حاسبة التكلفة",
+                nav_contact: "حجز معاينة",
+                sub_brand: "Architecture & Interior",
+                badge_offer: "عرض حصري",
+                btn_whatsapp: "تواصل عبر الواتساب",
+                lbl_call_us: "اتصل بنا:",
+                hero_badge: "تصميم معماري وتنفيذ فندقي بالإسكندرية والساحل الشمالي",
+                hero_title_p1: "نحوّل مساحتك السكنية إلى",
+                hero_title_p2: "تحفة معمارية فندقية",
+                btn_calc_now: "احسب تكلفة تشطيبك فوراً",
+                btn_view_portfolio: "استعرض الأعمال",
+                profile_posts: "منشورات",
+                profile_followers: "المتابعون",
+                profile_following: "متابعة",
+                btn_profile_wa: "مراسلة عبر الواتساب",
+                ba_badge: "تحول كامل قبل وبعد",
+                port_sub: "معرض الفيديوهات والأعمال",
+                port_title: "أحدث مشاريع وتصاميم Outline",
+                filter_all: "الكل",
+                filter_chalet: "شاليهات فندقية",
+                filter_living: "ريسبشن وليفينج",
+                filter_bath: "حمامات ومطابخ",
+                filter_bedroom: "غرف نوم",
+                calc_badge: "أداة حصرية",
+                calc_title: "حاسبة تكلفة التشطيب التقديرية",
+                calc_subtitle: "احسب ميزانية تشطيب وتصميم وحدتك فوراً وفق أحدث الأسعار الرسمية لـ Outline",
+                calc_area_label: "مساحة الوحدة (متر مربع):",
+                calc_unit_type: "نوع الوحدة:",
+                unit_apt: "شقة سكنية",
+                unit_chalet: "شاليه ساحلي",
+                unit_villa: "فيلا / توين",
+                unit_office: "مكتب / عيادة",
+                calc_package_level: "مستوى باقة التشطيب:",
+                calc_summary_header: "ملخص التقدير المبدئي",
+                calc_summary_area: "مساحة المشروع:",
+                calc_summary_rate: "سعر المتر التقديري:",
+                calc_summary_time: "مدة التنفيذ المتوقعة:",
+                calc_summary_total: "التكلفة التقديرية الإجمالية:",
+                calc_summary_note: "* شاملة الخامات والإشراف الهندسي الكامل",
+                btn_send_calc_wa: "إرسال المقايسة واستلام الخطة عبر الواتساب",
+                contact_badge: "تواصل مباشر",
+                contact_title: "جاهز لـ تحويل وحدتك؟",
+                contact_desc: "احجز زيارة معاينة هندسية لموقعك في الإسكندرية أو الساحل الشمالي لمعاينة الأبعاد، رفع المقاسات، وتقديم اقتراحات الديكور فوراً.",
+                contact_address_lbl: "العنوان الرئيسي",
+                contact_phones_lbl: "أرقام التواصل",
+                contact_form_title: "طلب معاينة موقع واستشارة هندسية",
+                contact_form_sub: "قم بتعبئة بياناتك وسيقوم أحد مهندسي Outline بالتواصل معك خلال 24 ساعة",
+                lbl_name: "الاسم بالكامل *",
+                lbl_phone: "رقم الهاتف / الواتساب *",
+                lbl_location: "منطقة/موقع الوحدة *",
+                lbl_service: "نوع الخدمة المطلوبة",
+                service_opt1: "تشطيب فندقي كامل (تسليم مفتاح)",
+                service_opt2: "تجديد شاليه / وحدة قائمة",
+                service_opt3: "تصميم معماري و3D فقط",
+                lbl_notes: "تفاصيل إضافية",
+                btn_submit_consultation: "إرسال طلب المعاينة الآن"
+            },
+            en: {
+                nav_home: "Home",
+                nav_profile: "Profile",
+                nav_before_after: "Before & After",
+                nav_portfolio: "Portfolio",
+                nav_calculator: "Cost Calculator",
+                nav_contact: "Book Visit",
+                sub_brand: "Architecture & Interior",
+                badge_offer: "Exclusive Offer",
+                btn_whatsapp: "Chat on WhatsApp",
+                lbl_call_us: "Call Us:",
+                hero_badge: "Architectural Design & Luxury Finishing in Alexandria & North Coast",
+                hero_title_p1: "Transforming Your Space Into A",
+                hero_title_p2: "Luxury Hotel Masterpiece",
+                btn_calc_now: "Calculate Finishing Cost",
+                btn_view_portfolio: "Explore Portfolio",
+                profile_posts: "Posts",
+                profile_followers: "Followers",
+                profile_following: "Following",
+                btn_profile_wa: "Message on WhatsApp",
+                ba_badge: "Complete Transformation",
+                port_sub: "Video & Design Gallery",
+                port_title: "Latest Outline Architecture Projects",
+                filter_all: "All",
+                filter_chalet: "Hotel Chalets",
+                filter_living: "Living & Reception",
+                filter_bath: "Baths & Kitchens",
+                filter_bedroom: "Bedrooms",
+                calc_badge: "Exclusive Tool",
+                calc_title: "Finishing Cost Calculator",
+                calc_subtitle: "Estimate your interior design and construction budget instantly with official Outline rates",
+                calc_area_label: "Unit Area (Square Meters):",
+                calc_unit_type: "Property Type:",
+                unit_apt: "Apartment",
+                unit_chalet: "Coastal Chalet",
+                unit_villa: "Villa / Twin House",
+                unit_office: "Office / Clinic",
+                calc_package_level: "Finishing Package Level:",
+                calc_summary_header: "Initial Cost Summary",
+                calc_summary_area: "Project Area:",
+                calc_summary_rate: "Est. Rate per SQM:",
+                calc_summary_time: "Est. Execution Time:",
+                calc_summary_total: "Total Estimated Budget:",
+                calc_summary_note: "* Includes premium materials & full site supervision",
+                btn_send_calc_wa: "Send Calculation via WhatsApp",
+                contact_badge: "Direct Contact",
+                contact_title: "Ready to Transform Your Space?",
+                contact_desc: "Book an engineering site inspection in Alexandria or the North Coast for dimensions, measurements, and interior layout proposals.",
+                contact_address_lbl: "Headquarters Address",
+                contact_phones_lbl: "Phone Lines",
+                contact_form_title: "Book Site Visit & Consultation",
+                contact_form_sub: "Fill in your details and an Outline engineer will reach out within 24 hours",
+                lbl_name: "Full Name *",
+                lbl_phone: "Phone / WhatsApp *",
+                lbl_location: "Property Location *",
+                lbl_service: "Required Service",
+                service_opt1: "Full Turnkey Hotel Finishing",
+                service_opt2: "Chalet / Unit Renovation",
+                service_opt3: "Architectural & 3D Design Only",
+                lbl_notes: "Additional Notes",
+                btn_submit_consultation: "Submit Site Inspection Request"
+            }
+        };
+
+        // DEFAULT APP STATE
+        const defaultState = {
+            themeColor: '#D4AF37',
+            settings: {
+                companyName: "Outline designs",
+                companyNameEn: "Outline Designs",
+                username: "out_line_designs",
+                postsCount: 92,
+                followersCount: "4,812",
+                followingCount: 2,
+                bioHeadline: "🔨🏡 Architecture | Construction | Interior Design",
+                bioDesc: "تصاميم معمارية هندسية مبتكرة وإشراف على المقاولات بأعلى معايير الجودة الفندقية.",
+                phone1: "01211247424",
+                phone2: "01551537298",
+                whatsapp: "201211247424",
+                address: "Fawzi Moaz St., Smouha, Alexandria, Egypt",
+                adminPassword: "1234",
+                logoUrl: null
+            },
+            offer: {
+                active: true,
+                badgeAr: "عرض حصري",
+                badgeEn: "Exclusive Offer",
+                textAr: "خصم خاص 15% على جميع خدمات التشطيب والتصميم الفندقي لعملائنا في الإسكندرية والساحل الشمالي!",
+                textEn: "Special 15% discount on hotel finishing & interior design for Alexandria & North Coast clients!"
+            },
+            pricing: {
+                p1Price: 4200, p1Desc: "تأسيس ممتاز + بورسلين + دهانات جوتن + إضاءات ليد",
+                p2Price: 6500, p2Desc: "تجاليد خشبية + بديل رخام + أسقف معلقة + سباكة معلقة",
+                p3Price: 9800, p3Desc: "رخام مستورد + سمارت هوم + إضاءات إيطالية + أثاث ثابت"
+            },
+            beforeAfter: {
+                titleAr: "من شاليه قديم .. لـ شاليه فندقي ساحر",
+                titleEn: "From An Old Chalet .. To A Luxury Hotel Suite",
+                descAr: "اسحب شريط المقارنة التفاعلي لرؤية التحول الكامل في التصميم والأرضيات الفاخرة!",
+                beforeImg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80",
+                afterImg: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
+            },
+            projects: [
+                {
+                    id: "p1", title: "من شالية قديم ل شالية فندقي", category: "chalet", views: "2,988", tag: "شاليه فندقي",
+                    img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
+                    desc: "تحويل كلي لشاليه ساحلي قديم إلى جناح فندقي فاخر بديكورات دافئة وإضاءات ليد مخفية.",
+                    materials: "تجاليد خشب HDF + جيبسوم بورد معلق", duration: "45 يوم عمل"
+                },
+                {
+                    id: "p2", title: "تصميم وتشطيب ريسبشن بانوراما", category: "living", views: "8,122", tag: "ريسبشن بانوراما",
+                    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+                    desc: "تصميم ريسبشن حديث بفراندة بانورامية وأرضيات رخام ذات لمعان عالي.",
+                    materials: "رخام كريما مارفل + تجاليد بديل رخام", duration: "40 يوم عمل"
+                },
+                {
+                    id: "p3", title: "مدخل شقة مودرن كلاسيك", category: "living", views: "3,409", tag: "مدخل مودرن",
+                    img: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
+                    desc: "ديكورات مدخل فاخرة تعكس أناقة الشقة بإضاءات مسارات مغناطيسية متطورة.",
+                    materials: "Magnetic Tracks + بديل خشب", duration: "25 يوم عمل"
+                },
+                {
+                    id: "p4", title: "ازاي قدرنا نوفر ١٠٠,٠٠٠ جنيه في الحمام ده", category: "bath", views: "2,200", tag: "توفير واستغلال",
+                    img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+                    desc: "حلول هندسية ذكية لااختيار البدائل واستغلال المساحات دون المساس بالجودة الفندقية.",
+                    materials: "سيراميك كليوباترا قطع ليزر + سباكة معلقة", duration: "20 يوم عمل"
+                },
+                {
+                    id: "p5", title: "غرفة أطفال مودرن وعملية", category: "bedroom", views: "852", tag: "غرف نوم",
+                    img: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
+                    desc: "استغلال مساحة غرفة أطفال مكتبية بسريرين ومساحات تخزين مخفية ذكية.",
+                    materials: "خشب Mdf تايلاندي أركيت + دهانات جوتن", duration: "30 يوم عمل"
+                },
+                {
+                    id: "p6", title: "وحدة تليفزيون مودرن بإضاءة مخفية", category: "living", views: "3,006", tag: "وحدة TV",
+                    img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+                    desc: "تصميم جدار شاشة بتجاليد خشبية وإضاءة دافئة خلفية خافتة للراحة البصرية.",
+                    materials: "بديل خشب + بديل رخام ماركو بولو", duration: "15 يوم عمل"
+                }
+            ],
+            leads: [],
+            sections: [
+                { id: "hero", type: "hero", nameAr: "قسم الغلاف الرئيسي (Hero)", nameEn: "Hero Section", visible: true },
+                { id: "offer", type: "offer", nameAr: "شريط العروض المميزة", nameEn: "Promo Offer Banner", visible: true },
+                { id: "profile", type: "profile", nameAr: "كارت البروفايل (Instagram Identity)", nameEn: "Instagram Profile Card", visible: true },
+                { id: "beforeAfter", type: "beforeAfter", nameAr: "سلايدر التفاعل قبل وبعد", nameEn: "Before & After Slider", visible: true },
+                { id: "portfolio", type: "portfolio", nameAr: "معرض المشاريع والفيديوهات", nameEn: "Portfolio Gallery", visible: true },
+                { id: "calculator", type: "calculator", nameAr: "حاسبة التكلفة التقديرية", nameEn: "Cost Calculator", visible: true },
+                { id: "booking", type: "booking", nameAr: "نموذج حجز معاينة موقع", nameEn: "Site Visit Booking Form", visible: true }
+            ]
+        };
+
+        // Initialize Local Storage state if not set
+        const savedState = localStorage.getItem('outline_app_state');
+        window.appState = savedState ? JSON.parse(savedState) : JSON.parse(JSON.stringify(defaultState));
+
+        window.saveState = function() {
+            localStorage.setItem('outline_app_state', JSON.stringify(window.appState));
+            if (isFirebaseAvailable && db) {
+                setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'appState', 'main'), window.appState).catch(e => console.warn(e));
+            }
+            renderClientSections();
+        };
+
+        // APP INITIALIZATION
+        window.onload = function() {
+            setupLanguage();
+            setupRouter();
+
+            if (isFirebaseAvailable && db) {
+                onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', 'appState', 'main'), (snapshot) => {
+                    if (snapshot.exists()) {
+                        window.appState = snapshot.data();
+                        renderClientSections();
+                    }
+                });
+            }
+        };
+
+        // ROUTER & ADMIN ACCESS
+        let footerClicks = 0;
+        window.handleSecretFooterClick = function() {
+            footerClicks++;
+            if (footerClicks >= 5) {
+                footerClicks = 0;
+                window.location.hash = 'admin';
+            }
+        };
+
+        function setupRouter() {
+            const checkRoute = () => {
+                const hash = window.location.hash;
+                const search = window.location.search;
+                if (hash === '#admin' || search.includes('admin=true')) {
+                    document.getElementById('admin-portal').classList.remove('hidden');
+                    renderAdminDashboard();
+                } else {
+                    document.getElementById('admin-portal').classList.add('hidden');
+                }
+            };
+            window.addEventListener('hashchange', checkRoute);
+            checkRoute();
+        }
+
+        window.closeAdmin = function() {
+            window.location.hash = '';
+            document.getElementById('admin-portal').classList.add('hidden');
+        };
+
+        window.handleAdminLogin = function(e) {
+            e.preventDefault();
+            const pass = document.getElementById('admin-pass-input').value;
+            if (pass === window.appState.settings.adminPassword) {
+                document.getElementById('admin-login-screen').classList.add('hidden');
+                document.getElementById('admin-dashboard-content').classList.remove('hidden');
+                showToast("تم تسجيل الدخول بنجاح!");
+                renderAdminDashboard();
+            } else {
+                showToast("كلمة المرور غير صحيحة!");
+            }
+        };
+
+        window.quickDemoLogin = function() {
+            document.getElementById('admin-login-screen').classList.add('hidden');
+            document.getElementById('admin-dashboard-content').classList.remove('hidden');
+            showToast("تم الدخول السريع للوحة التحكم");
+            renderAdminDashboard();
+        };
+
+        // DYNAMIC CLIENT SECTIONS RENDERER
+        function renderClientSections() {
+            const container = document.getElementById('client-sections-wrapper');
+            container.innerHTML = '';
+
+            // Apply theme accent color
+            if (window.appState.themeColor) {
+                document.documentElement.style.setProperty('--accent-gold', window.appState.themeColor);
+            }
+
+            // Render Logos
+            renderLogos();
+
+            const isEn = window.currentLang === 'en';
+            const s = window.appState.settings;
+
+            document.getElementById('nav-company-name').innerText = isEn && s.companyNameEn ? s.companyNameEn : s.companyName;
+            document.getElementById('footer-company-name').innerText = isEn && s.companyNameEn ? s.companyNameEn : s.companyName;
+            document.getElementById('footer-address-val').innerText = s.address;
+
+            document.getElementById('nav-phone-val').innerText = s.phone1;
+            document.getElementById('nav-phone-btn').href = `tel:${s.phone1}`;
+            document.getElementById('mobile-phone-val').innerText = s.phone1;
+            document.getElementById('mobile-call-btn').href = `tel:${s.phone1}`;
+            document.getElementById('nav-wa-btn').href = `https://wa.me/${s.whatsapp}?text=${encodeURIComponent('أهلاً Outline Designs')}`;
+
+            // Loop through dynamic configured sections
+            window.appState.sections.forEach(sec => {
+                if (!sec.visible) return;
+
+                const secEl = document.createElement('section');
+                secEl.id = sec.id;
+
+                if (sec.type === 'hero') {
+                    secEl.className = 'relative min-h-[80vh] flex items-center justify-center overflow-hidden py-16';
+                    secEl.innerHTML = `
+                        <div class="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Luxury Architecture" class="w-full h-full object-cover opacity-20">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/80 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-semibold mb-6 shadow-xl">
+                                <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+                                <span>${isEn ? 'Architectural Design & Luxury Finishing in Alexandria' : 'تصميم معماري وتنفيذ فندقي بالإسكندرية والساحل الشمالي'}</span>
+                            </div>
+                            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight font-tajawal">
+                                <span>${isEn ? 'Transforming Your Space Into A' : 'نحوّل مساحتك السكنية إلى'}</span> <br>
+                                <span class="gold-gradient-text">${isEn ? 'Luxury Hotel Masterpiece' : 'تحفة معمارية فندقية'}</span>
+                            </h1>
+                            <p class="max-w-3xl mx-auto text-stone-300 text-base sm:text-xl font-light leading-relaxed mb-10">
+                                ${s.bioDesc}
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+                                <a href="#calculator" class="w-full sm:w-auto bg-gradient-to-r from-gold-500 to-amber-600 hover:from-amber-400 hover:to-gold-500 text-stone-950 font-black px-8 py-4 rounded-xl text-lg shadow-2xl hover:scale-105 transition flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-calculator text-xl"></i>
+                                    <span>${isEn ? 'Calculate Finishing Cost' : 'احسب تكلفة تشطيبك فوراً'}</span>
+                                </a>
+                                <a href="#portfolio" class="w-full sm:w-auto glass-card hover:bg-dark-800 text-white font-bold px-8 py-4 rounded-xl text-lg border border-stone-700 hover:border-gold-500 transition flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-eye text-gold-400"></i>
+                                    <span>${isEn ? 'Explore Portfolio' : 'استعرض الأعمال'}</span>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'offer') {
+                    const off = window.appState.offer;
+                    if (!off.active) return;
+                    secEl.className = 'bg-gradient-to-r from-stone-900 via-gold-900/60 to-stone-900 text-gold-300 border-y border-gold-500/20 text-xs sm:text-sm py-3 px-4';
+                    secEl.innerHTML = `
+                        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-2 mx-auto">
+                                <span class="bg-gold-500 text-stone-950 text-[10px] font-black px-2.5 py-0.5 rounded uppercase tracking-wider">${isEn ? off.badgeEn : off.badgeAr}</span>
+                                <span class="font-medium text-center">${isEn ? off.textEn : off.textAr}</span>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'profile') {
+                    secEl.className = 'py-16 bg-dark-900/60 border-y border-stone-800/60';
+                    secEl.innerHTML = `
+                        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                            <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
+                                    <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-gold-500 via-stone-400 to-amber-300 shadow-xl flex-shrink-0">
+                                        <div class="w-full h-full rounded-full bg-stone-950 p-2 overflow-hidden flex flex-col items-center justify-center text-center border border-stone-800">
+                                            <div class="profile-logo-card-slot w-full h-full flex flex-col items-center justify-center"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow text-center md:text-right">
+                                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                                            <div>
+                                                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center justify-center md:justify-start gap-2">
+                                                    <span>${s.username}</span>
+                                                    <i class="fa-solid fa-circle-check text-gold-400 text-xl"></i>
+                                                </h2>
+                                                <p class="text-stone-400 font-semibold text-sm mt-0.5">${isEn && s.companyNameEn ? s.companyNameEn : s.companyName}</p>
+                                            </div>
+                                            <div class="flex items-center justify-center gap-6 sm:gap-8 bg-dark-950/80 px-6 py-3 rounded-2xl border border-stone-800/80">
+                                                <div class="text-center">
+                                                    <span class="block text-lg font-black text-white font-mono">${s.postsCount}</span>
+                                                    <span class="text-[11px] text-stone-400 font-medium">${isEn ? 'Posts' : 'منشورات'}</span>
+                                                </div>
+                                                <div class="h-8 w-px bg-stone-800"></div>
+                                                <div class="text-center">
+                                                    <span class="block text-lg font-black text-gold-400 font-mono">${s.followersCount}</span>
+                                                    <span class="text-[11px] text-stone-400 font-medium">${isEn ? 'Followers' : 'المتابعون'}</span>
+                                                </div>
+                                                <div class="h-8 w-px bg-stone-800"></div>
+                                                <div class="text-center">
+                                                    <span class="block text-lg font-black text-white font-mono">${s.followingCount}</span>
+                                                    <span class="text-[11px] text-stone-400 font-medium">${isEn ? 'Following' : 'متابعة'}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-2 text-sm text-stone-300 leading-relaxed font-light mb-6 bg-dark-900/50 p-4 rounded-2xl border border-stone-800/50">
+                                            <p class="font-bold text-gold-400">${s.bioHeadline}</p>
+                                            <p class="text-xs text-stone-300 flex items-center justify-center md:justify-start gap-2">
+                                                <i class="fa-solid fa-location-dot text-gold-400"></i>
+                                                <span>${s.address}</span>
+                                            </p>
+                                            <p class="text-xs text-stone-400 pt-1 border-t border-stone-800/60">${s.bioDesc}</p>
+                                        </div>
+                                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                                            <a href="https://wa.me/${s.whatsapp}" target="_blank" class="bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-lg">
+                                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                                <span>${isEn ? 'Message on WhatsApp' : 'مراسلة عبر الواتساب'}</span>
+                                            </a>
+                                            <a href="tel:${s.phone1}" class="bg-dark-800 hover:bg-dark-700 border border-stone-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                                                <i class="fa-solid fa-phone text-gold-400"></i>
+                                                <span dir="ltr" class="font-mono">${s.phone1}</span>
+                                            </a>
+                                            <a href="tel:${s.phone2}" class="bg-dark-800 hover:bg-dark-700 border border-stone-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                                                <i class="fa-solid fa-phone text-gold-400"></i>
+                                                <span dir="ltr" class="font-mono">${s.phone2}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'beforeAfter') {
+                    const ba = window.appState.beforeAfter;
+                    secEl.className = 'py-20 bg-dark-950';
+                    secEl.innerHTML = `
+                        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                            <div class="text-center max-w-3xl mx-auto mb-12">
+                                <span class="text-gold-500 text-xs font-bold uppercase tracking-widest block mb-2">${isEn ? 'Complete Transformation' : 'تحول كامل قبل وبعد'}</span>
+                                <h2 class="text-3xl sm:text-5xl font-black text-white font-tajawal mb-4">${isEn ? ba.titleEn : ba.titleAr}</h2>
+                                <p class="text-stone-400 text-sm sm:text-base font-light">${ba.descAr}</p>
+                            </div>
+                            <div class="ba-slider-container w-full h-[380px] sm:h-[520px] rounded-3xl border-2 border-stone-800 shadow-2xl relative" id="ba-slider-box">
+                                <img src="${ba.afterImg}" alt="After" class="ba-after-img">
+                                <div class="absolute bottom-4 left-4 z-20 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-gold-500/40 text-gold-400 text-xs font-bold">
+                                    ${isEn ? 'After: Luxury Hotel Suite (Outline)' : 'بعد: شاليه فندقي مودرن (Outline)'}
+                                </div>
+                                <div class="ba-before-img-wrapper" id="ba-before-wrap">
+                                    <img src="${ba.beforeImg}" alt="Before" class="ba-before-img">
+                                    <div class="absolute bottom-4 right-4 z-20 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-stone-700 text-stone-300 text-xs font-bold">
+                                        ${isEn ? 'Before: Old Traditional Unit' : 'قبل: شاليه تقليدي قديم'}
+                                    </div>
+                                </div>
+                                <div class="ba-handle" id="ba-handle-bar">
+                                    <div class="ba-handle-line"></div>
+                                    <div class="ba-handle-button"><i class="fa-solid fa-arrows-left-right text-xs"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'portfolio') {
+                    secEl.className = 'py-20 bg-dark-900/50';
+                    secEl.innerHTML = `
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                                <div>
+                                    <span class="text-gold-500 text-xs font-bold uppercase tracking-widest">${isEn ? 'Video & Design Gallery' : 'معرض الفيديوهات والأعمال'}</span>
+                                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">${isEn ? 'Latest Outline Projects' : 'أحدث مشاريع وتصاميم Outline'}</h2>
+                                </div>
+                                <div class="flex flex-wrap gap-2 bg-dark-900 p-1.5 rounded-xl border border-stone-800">
+                                    <button class="filter-btn active bg-gold-500 text-stone-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition" onclick="window.filterPortfolio('all', this)">${isEn ? 'All' : 'الكل'}</button>
+                                    <button class="filter-btn text-stone-300 hover:text-white px-4 py-2 rounded-lg text-xs sm:text-sm transition" onclick="window.filterPortfolio('chalet', this)">${isEn ? 'Chalets' : 'شاليهات فندقية'}</button>
+                                    <button class="filter-btn text-stone-300 hover:text-white px-4 py-2 rounded-lg text-xs sm:text-sm transition" onclick="window.filterPortfolio('living', this)">${isEn ? 'Living' : 'ريسبشن وليفينج'}</button>
+                                    <button class="filter-btn text-stone-300 hover:text-white px-4 py-2 rounded-lg text-xs sm:text-sm transition" onclick="window.filterPortfolio('bath', this)">${isEn ? 'Baths' : 'حمامات ومطابخ'}</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="client-projects-grid">
+                                <!-- Cards JS -->
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'calculator') {
+                    secEl.className = 'py-20 bg-dark-950 border-t border-stone-800/80';
+                    secEl.innerHTML = `
+                        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-gold-500/20 shadow-2xl relative overflow-hidden">
+                                <div class="text-center max-w-2xl mx-auto mb-10">
+                                    <span class="bg-gold-500/20 text-gold-400 text-xs font-bold px-3 py-1 rounded-full border border-gold-500/30 inline-block mb-3">${isEn ? 'Exclusive Tool' : 'أداة حصرية'}</span>
+                                    <h2 class="text-3xl sm:text-4xl font-black text-white font-tajawal mb-2">${isEn ? 'Finishing Cost Calculator' : 'حاسبة تكلفة التشطيب التقديرية'}</h2>
+                                    <p class="text-stone-400 text-xs sm:text-sm font-light">${isEn ? 'Estimate your budget instantly' : 'احسب ميزانية تشطيب وتصميم وحدتك فوراً وفق أحدث الأسعار الرسمية لـ Outline'}</p>
+                                </div>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                                    <div class="lg:col-span-7 space-y-6">
+                                        <div class="bg-dark-900/80 p-5 rounded-2xl border border-stone-800">
+                                            <div class="flex justify-between items-center mb-3">
+                                                <label class="text-sm font-bold text-stone-200">${isEn ? 'Unit Area (m²):' : 'مساحة الوحدة (متر مربع):'}</label>
+                                                <span class="text-xl font-black text-gold-400 font-mono"><span id="calc-area-val">120</span> m²</span>
+                                            </div>
+                                            <input type="range" id="calc-area-slider" min="40" max="600" step="10" value="120" oninput="window.calculateCost()" class="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                                        </div>
+
+                                        <div class="bg-dark-900/80 p-5 rounded-2xl border border-stone-800">
+                                            <label class="block text-sm font-bold text-stone-200 mb-3">${isEn ? 'Property Type:' : 'نوع الوحدة:'}</label>
+                                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                                <button class="calc-unit-btn active bg-gold-500 text-stone-950 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1" data-rate="1" onclick="window.selectUnitType(this)">
+                                                    <i class="fa-solid fa-building text-base"></i> <span>${isEn ? 'Apartment' : 'شقة سكنية'}</span>
+                                                </button>
+                                                <button class="calc-unit-btn bg-dark-800 text-stone-300 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1" data-rate="1.1" onclick="window.selectUnitType(this)">
+                                                    <i class="fa-solid fa-umbrella-beach text-base"></i> <span>${isEn ? 'Chalet' : 'شاليه ساحلي'}</span>
+                                                </button>
+                                                <button class="calc-unit-btn bg-dark-800 text-stone-300 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1" data-rate="1.25" onclick="window.selectUnitType(this)">
+                                                    <i class="fa-solid fa-house-chimney-window text-base"></i> <span>${isEn ? 'Villa' : 'فيلا / توين'}</span>
+                                                </button>
+                                                <button class="calc-unit-btn bg-dark-800 text-stone-300 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1" data-rate="1.15" onclick="window.selectUnitType(this)">
+                                                    <i class="fa-solid fa-briefcase text-base"></i> <span>${isEn ? 'Office' : 'مكتب / عيادة'}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-dark-900/80 p-5 rounded-2xl border border-stone-800">
+                                            <label class="block text-sm font-bold text-stone-200 mb-3">${isEn ? 'Finishing Level:' : 'مستوى باقة التشطيب:'}</label>
+                                            <div class="space-y-3" id="calc-packages-slot">
+                                                <!-- Packages JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="lg:col-span-5 bg-gradient-to-b from-dark-900 via-stone-900 to-dark-950 p-6 rounded-3xl border border-gold-500/30 shadow-2xl h-full flex flex-col justify-between">
+                                        <div>
+                                            <h3 class="text-base font-bold text-gold-400 mb-4 border-b border-stone-800 pb-3 flex items-center gap-2">
+                                                <i class="fa-solid fa-receipt"></i> <span>${isEn ? 'Estimate Summary' : 'ملخص التقدير المبدئي'}</span>
+                                            </h3>
+                                            <div class="space-y-4 text-sm">
+                                                <div class="flex justify-between text-stone-300">
+                                                    <span>${isEn ? 'Project Area:' : 'مساحة المشروع:'}</span>
+                                                    <span class="font-bold font-mono text-white" id="calc-sum-area">120 m²</span>
+                                                </div>
+                                                <div class="flex justify-between text-stone-300">
+                                                    <span>${isEn ? 'Est. Rate/m²:' : 'سعر المتر التقديري:'}</span>
+                                                    <span class="font-bold font-mono text-gold-400" id="calc-sum-rate">6,500 EGP</span>
+                                                </div>
+                                                <div class="flex justify-between text-stone-300">
+                                                    <span>${isEn ? 'Execution Time:' : 'مدة التنفيذ المتوقعة:'}</span>
+                                                    <span class="font-bold text-stone-200" id="calc-sum-time">45 - 60 Days</span>
+                                                </div>
+                                                <hr class="border-stone-800 my-2">
+                                                <div>
+                                                    <span class="block text-xs text-stone-400 mb-1">${isEn ? 'Total Budget:' : 'التكلفة التقديرية الإجمالية:'}</span>
+                                                    <div class="text-3xl font-black text-gold-400 font-mono" id="calc-sum-total">780,000 EGP</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button onclick="window.sendCalcToWhatsApp()" class="mt-6 w-full bg-gold-500 hover:bg-gold-400 text-stone-950 font-black py-3.5 rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2">
+                                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                                            <span>${isEn ? 'Send Quote via WhatsApp' : 'إرسال المقايسة عبر الواتساب'}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'booking') {
+                    secEl.className = 'py-20 bg-dark-900/60';
+                    secEl.innerHTML = `
+                        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                                <div class="lg:col-span-5 space-y-6">
+                                    <span class="text-gold-500 text-xs font-bold uppercase tracking-widest block">${isEn ? 'Direct Contact' : 'تواصل مباشر'}</span>
+                                    <h2 class="text-3xl sm:text-4xl font-black text-white font-tajawal">${isEn ? 'Ready To Transform Your Unit?' : 'جاهز لـ تحويل وحدتك؟'}</h2>
+                                    <p class="text-stone-300 text-sm leading-relaxed">${isEn ? 'Book an engineering site visit in Smouha or North Coast.' : 'احجز زيارة معاينة هندسية لموقعك في الإسكندرية أو الساحل الشمالي لمعاينة الأبعاد وتقديم اقتراحات الديكور.'}</p>
+                                    <div class="p-4 rounded-2xl bg-dark-950 border border-stone-800 space-y-2 text-xs">
+                                        <p class="text-stone-400 font-bold uppercase">${isEn ? 'Headquarters:' : 'العنوان الرئيسي:'}</p>
+                                        <p class="text-sm font-semibold text-white">${s.address}</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-7">
+                                    <div class="glass-card rounded-3xl p-6 sm:p-8 border border-stone-800 shadow-2xl">
+                                        <h3 class="text-xl font-bold text-white mb-2">${isEn ? 'Book Site Visit & Consultation' : 'طلب معاينة موقع واستشارة هندسية'}</h3>
+                                        <form onsubmit="window.handleLeadSubmit(event)" class="space-y-4 mt-4">
+                                            <input type="text" id="lead-name" placeholder="${isEn ? 'Full Name *' : 'الاسم بالكامل *'}" required class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-xs text-white">
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                <input type="tel" id="lead-phone" placeholder="${isEn ? 'Phone / WhatsApp *' : 'رقم الهاتف / الواتساب *'}" required dir="ltr" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-xs text-white font-mono">
+                                                <input type="text" id="lead-location" placeholder="${isEn ? 'Location (e.g. Smouha) *' : 'منطقة/موقع الوحدة *'}" required class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-xs text-white">
+                                            </div>
+                                            <select id="lead-service" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-xs text-white">
+                                                <option value="تشطيب كامل">${isEn ? 'Full Turnkey Hotel Finishing' : 'تشطيب فندقي كامل (تسليم مفتاح)'}</option>
+                                                <option value="تجديد شاليه">${isEn ? 'Chalet / Unit Renovation' : 'تجديد شاليه / وحدة قائمة'}</option>
+                                                <option value="تصميم 3D">${isEn ? '3D Design Only' : 'تصميم معماري و3D فقط'}</option>
+                                            </select>
+                                            <textarea id="lead-notes" rows="3" placeholder="${isEn ? 'Additional notes...' : 'ملاحظات إضافية...'}" class="w-full bg-dark-950 border border-stone-800 rounded-xl px-4 py-3 text-xs text-white"></textarea>
+                                            <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-stone-950 font-black py-3.5 rounded-xl text-xs transition shadow-lg">
+                                                ${isEn ? 'Submit Consultation Request' : 'إرسال طلب المعاينة الآن'}
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'custom') {
+                    secEl.className = 'py-16 bg-dark-950 border-t border-stone-800/60';
+                    secEl.innerHTML = `
+                        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                            <div class="glass-card rounded-3xl p-8 border border-stone-800 flex flex-col ${sec.layout === 'right' ? 'md:flex-row-reverse' : sec.layout === 'left' ? 'md:flex-row' : 'text-center'} items-center gap-8">
+                                ${sec.img ? `<img src="${sec.img}" class="w-full md:w-1/2 rounded-2xl border border-stone-700 object-cover max-h-80">` : ''}
+                                <div class="${sec.img ? 'md:w-1/2' : 'w-full'} space-y-4">
+                                    <h3 class="text-2xl sm:text-3xl font-black text-white font-tajawal">${isEn ? sec.titleEn : sec.titleAr}</h3>
+                                    <p class="text-stone-300 text-sm leading-relaxed">${isEn ? sec.bodyEn : sec.bodyAr}</p>
+                                    ${sec.ctaText ? `
+                                        <a href="#booking" class="inline-block bg-gold-500 hover:bg-gold-400 text-stone-950 font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md">
+                                            ${sec.ctaText}
+                                        </a>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                container.appendChild(secEl);
+            });
+
+            // Post-render attachments
+            setupBeforeAfterSlider();
+            renderProjectsInClient();
+            renderPackagesInClient();
+        }
+
+        // LOGO RENDERER
+        function renderLogos() {
+            const logoContainer = document.getElementById('nav-logo-wrapper');
+            const footerLogoContainer = document.getElementById('footer-logo-wrapper');
+            const adminLogoPreview = document.getElementById('adm-logo-preview');
+
+            const logoHtml = window.appState.settings.logoUrl
+                ? `<img src="${window.appState.settings.logoUrl}" class="w-full h-full object-cover rounded-full">`
+                : `<div class="w-full h-full rounded-full bg-stone-950 flex flex-col items-center justify-center text-center border border-stone-800">
+                    <i class="fa-solid fa-building-user text-gold-400 text-lg"></i>
+                   </div>`;
+
+            if (logoContainer) logoContainer.innerHTML = logoHtml;
+            if (footerLogoContainer) footerLogoContainer.innerHTML = logoHtml;
+            if (adminLogoPreview) adminLogoPreview.innerHTML = logoHtml;
+
+            document.querySelectorAll('.profile-logo-card-slot').forEach(el => {
+                el.innerHTML = window.appState.settings.logoUrl
+                    ? `<img src="${window.appState.settings.logoUrl}" class="w-full h-full object-cover rounded-full">`
+                    : `<i class="fa-solid fa-building-user text-gold-400 text-4xl mb-1"></i>
+                       <span class="text-[9px] font-black tracking-tighter text-white uppercase">OUTLINE</span>
+                       <span class="text-[7px] text-stone-400 tracking-widest">CONSTRUCTION</span>`;
+            });
+        }
+
+        // BEFORE AFTER SLIDER LOGIC
+        function setupBeforeAfterSlider() {
+            const container = document.getElementById('ba-slider-box');
+            const handle = document.getElementById('ba-handle-bar');
+            const wrapper = document.getElementById('ba-before-wrap');
+            if (!container || !handle || !wrapper) return;
+
+            let isDragging = false;
+            const update = (x) => {
+                const rect = container.getBoundingClientRect();
+                let pos = x - rect.left;
+                if (pos < 0) pos = 0;
+                if (pos > rect.width) pos = rect.width;
+                const pct = (pos / rect.width) * 100;
+                wrapper.style.width = `${pct}%`;
+                handle.style.left = `${pct}%`;
+            };
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; update(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) update(e.clientX); });
+
+            container.addEventListener('touchstart', (e) => { isDragging = true; update(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) update(e.touches[0].clientX); });
+        }
+
+        // CLIENT PROJECTS GRID
+        function renderProjectsInClient() {
+            const grid = document.getElementById('client-projects-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            window.appState.projects.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = `portfolio-item ${proj.category} glass-card rounded-2xl overflow-hidden group cursor-pointer`;
+                card.onclick = () => window.openProjectModal(proj.id);
+                card.innerHTML = `
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="${proj.img}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 right-3 flex items-center gap-1.5 text-xs text-white bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                            <i class="fa-regular fa-eye text-gold-400"></i>
+                            <span class="font-mono font-bold">${proj.views}</span>
+                        </div>
+                        <div class="absolute bottom-10 right-4 left-4">
+                            <span class="bg-gold-500 text-stone-950 text-[10px] font-black px-2 py-0.5 rounded uppercase">${proj.tag || 'Outline'}</span>
+                            <h3 class="text-base font-bold text-white mt-1 group-hover:text-gold-400 transition">${proj.title}</h3>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // CALCULATOR ENGINE
+        window.selectUnitType = function(btn) {
+            document.querySelectorAll('.calc-unit-btn').forEach(b => {
+                b.className = 'calc-unit-btn bg-dark-800 text-stone-300 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1';
+            });
+            btn.className = 'calc-unit-btn active bg-gold-500 text-stone-950 font-bold p-3 rounded-xl text-xs transition flex flex-col items-center gap-1';
+            window.calculateCost();
+        };
+
+        function renderPackagesInClient() {
+            const container = document.getElementById('calc-packages-slot');
+            if (!container) return;
+
+            const p = window.appState.pricing;
+            const currency = window.currentLang === 'en' ? 'EGP/m²' : 'ج/م²';
+
+            container.innerHTML = `
+                <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-800/80 border border-stone-700 cursor-pointer hover:border-gold-500/50 transition">
+                    <div class="flex items-center gap-3">
+                        <input type="radio" name="calc-package" value="${p.p1Price}" class="accent-gold-500 w-4 h-4">
+                        <div>
+                            <span class="text-sm font-bold text-white block">باقة مودرن لوكس (Modern Standard)</span>
+                            <span class="text-xs text-stone-400">${p.p1Desc}</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-400 font-mono font-bold hidden sm:inline-block">${p.p1Price.toLocaleString()} ${currency}</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-800/80 border-2 border-gold-500 cursor-pointer transition">
+                    <div class="flex items-center gap-3">
+                        <input type="radio" name="calc-package" value="${p.p2Price}" checked class="accent-gold-500 w-4 h-4">
+                        <div>
+                            <span class="text-sm font-bold text-white block">باقة ألترا لوكس الفندقية (Ultra Luxury)</span>
+                            <span class="text-xs text-stone-400">${p.p2Desc}</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-400 font-mono font-bold hidden sm:inline-block">${p.p2Price.toLocaleString()} ${currency}</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-800/80 border border-stone-700 cursor-pointer hover:border-gold-500/50 transition">
+                    <div class="flex items-center gap-3">
+                        <input type="radio" name="calc-package" value="${p.p3Price}" class="accent-gold-500 w-4 h-4">
+                        <div>
+                            <span class="text-sm font-bold text-white block">باقة القصور والفنادق (VIP Signature)</span>
+                            <span class="text-xs text-stone-400">${p.p3Desc}</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-400 font-mono font-bold hidden sm:inline-block">${p.p3Price.toLocaleString()} ${currency}</span>
+                </label>
+            `;
+
+            document.querySelectorAll('input[name="calc-package"]').forEach(r => r.addEventListener('change', window.calculateCost));
+            window.calculateCost();
+        }
+
+        window.calculateCost = function() {
+            const areaEl = document.getElementById('calc-area-slider');
+            if (!areaEl) return;
+
+            const area = parseInt(areaEl.value);
+            document.getElementById('calc-area-val').innerText = area;
+
+            const selectedPkg = document.querySelector('input[name="calc-package"]:checked');
+            const baseRate = selectedPkg ? parseInt(selectedPkg.value) : 6500;
+
+            const selectedUnit = document.querySelector('.calc-unit-btn.active');
+            const mult = selectedUnit ? parseFloat(selectedUnit.getAttribute('data-rate')) : 1;
+
+            const effectiveRate = Math.round(baseRate * mult);
+            const total = area * effectiveRate;
+            const isEn = window.currentLang === 'en';
+            const currency = isEn ? 'EGP' : 'ج.م';
+
+            document.getElementById('calc-sum-area').innerText = `${area} ${isEn ? 'm²' : 'م²'}`;
+            document.getElementById('calc-sum-rate').innerText = `${effectiveRate.toLocaleString()} ${currency}`;
+            document.getElementById('calc-sum-total').innerText = `${total.toLocaleString()} ${currency}`;
+
+            const days = Math.round(30 + (area * 0.3));
+            document.getElementById('calc-sum-time').innerText = isEn ? `${days} - ${days + 15} Days` : `${days} - ${days + 15} يوم عمل`;
+        };
+
+        window.sendCalcToWhatsApp = function() {
+            const area = document.getElementById('calc-area-val').innerText;
+            const rate = document.getElementById('calc-sum-rate').innerText;
+            const total = document.getElementById('calc-sum-total').innerText;
+
+            const text = encodeURIComponent(`مرحباً Outline Designs، أود استلام الخطة والمقايسة لتشطيب وحدتي:\n- المساحة: ${area} م²\n- معدل السعر التقديري: ${rate}\n- التكلفة الإجمالية التقديرية: ${total}`);
+            window.open(`https://wa.me/${window.appState.settings.whatsapp}?text=${text}`, '_blank');
+        };
+
+        // LEAD SUBMISSION
+        window.handleLeadSubmit = function(e) {
+            e.preventDefault();
+            const lead = {
+                id: 'lead_' + Date.now(),
+                name: document.getElementById('lead-name').value,
+                phone: document.getElementById('lead-phone').value,
+                location: document.getElementById('lead-location').value,
+                service: document.getElementById('lead-service').value,
+                notes: document.getElementById('lead-notes').value,
+                date: new Date().toLocaleDateString('ar-EG')
+            };
+
+            window.appState.leads.unshift(lead);
+            window.saveState();
+            showToast("تم إرسال طلبك بنجاح! سيتم التواصل معك خلال 24 ساعة");
+            e.target.reset();
+        };
+
+        // PORTFOLIO FILTER & MODAL
+        window.filterPortfolio = function(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = 'filter-btn text-stone-300 hover:text-white px-4 py-2 rounded-lg text-xs sm:text-sm transition';
+            });
+            btn.className = 'filter-btn active bg-gold-500 text-stone-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition';
+
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                item.style.display = (cat === 'all' || item.classList.contains(cat)) ? 'block' : 'none';
+            });
+        };
+
+        window.openProjectModal = function(id) {
+            const proj = window.appState.projects.find(p => p.id === id);
+            if (!proj) return;
+
+            document.getElementById('modal-img').src = proj.img;
+            document.getElementById('modal-title').innerText = proj.title;
+            document.getElementById('modal-desc').innerText = proj.desc;
+            document.getElementById('modal-tag').innerText = proj.tag || 'Outline Project';
+            document.getElementById('modal-materials').innerText = proj.materials || 'خامات فندقية فاخرة';
+            document.getElementById('modal-duration').innerText = proj.duration || '30 يوم';
+
+            const text = encodeURIComponent(`مرحباً Outline Designs، أود الاستفسار عن مشروع "${proj.title}" وتنفيذ مشروع مماثل.`);
+            document.getElementById('modal-wa-btn').href = `https://wa.me/${window.appState.settings.whatsapp}?text=${text}`;
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        };
+
+        window.closeProjectModal = function() {
+            document.getElementById('project-modal').classList.add('hidden');
+        };
+
+        // ADMIN DASHBOARD RENDERER & LOGIC
+        function renderAdminDashboard() {
+            renderAdminSectionsList();
+            renderAdminProfileForm();
+            renderAdminProjectsGrid();
+            renderAdminLeadsTable();
+
+            // Offer & Pricing Inputs
+            document.getElementById('adm-offer-active').checked = window.appState.offer.active;
+            document.getElementById('adm-offer-text-ar').value = window.appState.offer.textAr;
+            document.getElementById('adm-offer-text-en').value = window.appState.offer.textEn;
+
+            document.getElementById('adm-p1-price').value = window.appState.pricing.p1Price;
+            document.getElementById('adm-p1-desc').value = window.appState.pricing.p1Desc;
+            document.getElementById('adm-p2-price').value = window.appState.pricing.p2Price;
+            document.getElementById('adm-p2-desc').value = window.appState.pricing.p2Desc;
+            document.getElementById('adm-p3-price').value = window.appState.pricing.p3Price;
+            document.getElementById('adm-p3-desc').value = window.appState.pricing.p3Desc;
+
+            document.getElementById('adm-ba-before-url').value = window.appState.beforeAfter.beforeImg;
+            document.getElementById('adm-ba-after-url').value = window.appState.beforeAfter.afterImg;
+        }
+
+        function renderAdminSectionsList() {
+            const list = document.getElementById('admin-sections-list');
+            if (!list) return;
+            list.innerHTML = '';
+
+            window.appState.sections.forEach((sec, idx) => {
+                const item = document.createElement('div');
+                item.className = 'bg-dark-950 p-4 rounded-xl border border-stone-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4';
+                item.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="bg-gold-500/20 text-gold-400 font-mono text-xs px-2 py-1 rounded font-bold">#${idx + 1}</span>
+                        <input type="checkbox" ${sec.visible ? 'checked' : ''} onchange="window.toggleSectionVis('${sec.id}')" class="accent-gold-500 w-4 h-4 cursor-pointer">
+                        <div>
+                            <span class="text-xs font-bold ${sec.visible ? 'text-white' : 'text-stone-500 line-through'}">${sec.nameAr || sec.nameEn}</span>
+                            <span class="text-[10px] text-stone-500 block uppercase font-mono">${sec.type}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="window.moveSection('${sec.id}', 'up')" ${idx === 0 ? 'disabled' : ''} class="p-2 bg-dark-900 border border-stone-800 rounded-lg text-xs text-stone-300 hover:text-gold-400 disabled:opacity-30">
+                            ▲ أعلى
+                        </button>
+                        <button onclick="window.moveSection('${sec.id}', 'down')" ${idx === window.appState.sections.length - 1 ? 'disabled' : ''} class="p-2 bg-dark-900 border border-stone-800 rounded-lg text-xs text-stone-300 hover:text-gold-400 disabled:opacity-30">
+                            ▼ أسفل
+                        </button>
+                        ${sec.type === 'custom' ? `
+                            <button onclick="window.deleteCustomSection('${sec.id}')" class="p-2 bg-red-500/20 text-red-300 hover:text-white rounded-lg text-xs">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        window.toggleSectionVis = function(id) {
+            const sec = window.appState.sections.find(s => s.id === id);
+            if (sec) {
+                sec.visible = !sec.visible;
+                window.saveState();
+                renderAdminSectionsList();
+                showToast("تم تغيير حالة الرؤية");
+            }
+        };
+
+        window.moveSection = function(id, dir) {
+            const idx = window.appState.sections.findIndex(s => s.id === id);
+            if (idx < 0) return;
+            const targetIdx = dir === 'up' ? idx - 1 : idx + 1;
+            if (targetIdx < 0 || targetIdx >= window.appState.sections.length) return;
+
+            const temp = window.appState.sections[idx];
+            window.appState.sections[idx] = window.appState.sections[targetIdx];
+            window.appState.sections[targetIdx] = temp;
+
+            window.saveState();
+            renderAdminSectionsList();
+            showToast("تم تغيير ترتيب الأقسام");
+        };
+
+        window.handleAddCustomSection = function(e) {
+            e.preventDefault();
+            const titleAr = document.getElementById('cs-title-ar').value;
+            const titleEn = document.getElementById('cs-title-en').value;
+            const bodyAr = document.getElementById('cs-body-ar').value;
+            const bodyEn = document.getElementById('cs-body-en').value;
+            const layout = document.getElementById('cs-layout').value;
+            const img = document.getElementById('cs-img-data').value;
+            const ctaText = document.getElementById('cs-cta-text').value;
+
+            const newSec = {
+                id: 'sec_' + Date.now(),
+                type: 'custom',
+                nameAr: `قسم مخصص: ${titleAr}`,
+                nameEn: `Custom: ${titleEn}`,
+                visible: true,
+                titleAr, titleEn, bodyAr, bodyEn, layout, img, ctaText
+            };
+
+            window.appState.sections.push(newSec);
+            window.saveState();
+            renderAdminSectionsList();
+            showToast("تم إضافة القسم المخصص بنجاح!");
+            e.target.reset();
+        };
+
+        window.deleteCustomSection = function(id) {
+            window.appState.sections = window.appState.sections.filter(s => s.id !== id);
+            window.saveState();
+            renderAdminSectionsList();
+            showToast("تم حذف القسم المخصص");
+        };
+
+        // CANVAS IMAGE COMPRESSION HELPER
+        function compressImage(file, callback) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let w = img.width;
+                    let h = img.height;
+                    const max = 800;
+                    if (w > max || h > max) {
+                        if (w > h) { h = Math.round((h * max) / w); w = max; }
+                        else { w = Math.round((w * max) / h); h = max; }
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    callback(canvas.toDataURL('image/jpeg', 0.8));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        window.handleCustomSecImg = function(input) {
+            if (input.files && input.files[0]) {
+                compressImage(input.files[0], (data) => {
+                    document.getElementById('cs-img-data').value = data;
+                });
+            }
+        };
+
+        window.handleLogoFile = function(input) {
+            if (input.files && input.files[0]) {
+                compressImage(input.files[0], (data) => {
+                    window.appState.settings.logoUrl = data;
+                    window.saveState();
+                    showToast("تم رفع وتحديث الشعار بنجاح!");
+                });
+            }
+        };
+
+        window.applyLogoUrl = function() {
+            const url = document.getElementById('adm-logo-url').value;
+            if (url) {
+                window.appState.settings.logoUrl = url;
+                window.saveState();
+                showToast("تم تطبيق رابط اللوجو");
+            }
+        };
+
+        window.resetToDefaultLogo = function() {
+            window.appState.settings.logoUrl = null;
+            window.saveState();
+            showToast("تم الإعادة للشعار الهندسي الافتراضي");
+        };
+
+        window.setThemeColor = function(colorHex) {
+            window.appState.themeColor = colorHex;
+            window.saveState();
+            showToast("تم تغيير اللون الرئيسي للهوية!");
+        };
+
+        function renderAdminProfileForm() {
+            const s = window.appState.settings;
+            document.getElementById('adm-company-name').value = s.companyName || '';
+            document.getElementById('adm-company-name-en').value = s.companyNameEn || '';
+            document.getElementById('adm-username').value = s.username || '';
+            document.getElementById('adm-followers').value = s.followersCount || '';
+            document.getElementById('adm-posts').value = s.postsCount || '';
+            document.getElementById('adm-phone1').value = s.phone1 || '';
+            document.getElementById('adm-phone2').value = s.phone2 || '';
+            document.getElementById('adm-bio-desc').value = s.bioDesc || '';
+        }
+
+        window.handleSaveProfile = function(e) {
+            e.preventDefault();
+            const s = window.appState.settings;
+            s.companyName = document.getElementById('adm-company-name').value;
+            s.companyNameEn = document.getElementById('adm-company-name-en').value;
+            s.username = document.getElementById('adm-username').value;
+            s.followersCount = document.getElementById('adm-followers').value;
+            s.postsCount = document.getElementById('adm-posts').value;
+            s.phone1 = document.getElementById('adm-phone1').value;
+            s.phone2 = document.getElementById('adm-phone2').value;
+            s.bioDesc = document.getElementById('adm-bio-desc').value;
+
+            window.saveState();
+            showToast("تم حفظ بيانات البروفايل!");
+        };
+
+        function renderAdminProjectsGrid() {
+            const grid = document.getElementById('admin-projects-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            window.appState.projects.forEach(proj => {
+                const item = document.createElement('div');
+                item.className = 'bg-dark-950 p-3 rounded-2xl border border-stone-800 flex items-center gap-3';
+                item.innerHTML = `
+                    <img src="${proj.img}" class="w-14 h-14 object-cover rounded-xl border border-stone-700">
+                    <div class="flex-grow overflow-hidden">
+                        <h4 class="text-xs font-bold text-white truncate">${proj.title}</h4>
+                        <span class="text-[10px] text-stone-400 block">${proj.category} - ${proj.views} مشاهدة</span>
+                    </div>
+                    <button onclick="window.deleteProject('${proj.id}')" class="text-red-400 hover:text-red-300 p-2 text-xs">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        window.deleteProject = function(id) {
+            window.appState.projects = window.appState.projects.filter(p => p.id !== id);
+            window.saveState();
+            renderAdminProjectsGrid();
+            showToast("تم حذف المشروع");
+        };
+
+        window.handleBAFile = function(type, input) {
+            if (input.files && input.files[0]) {
+                compressImage(input.files[0], (data) => {
+                    if (type === 'before') window.appState.beforeAfter.beforeImg = data;
+                    if (type === 'after') window.appState.beforeAfter.afterImg = data;
+                    window.saveState();
+                    showToast("تم رفع صورة المقارنة!");
+                });
+            }
+        };
+
+        window.handleSaveBeforeAfter = function(e) {
+            e.preventDefault();
+            window.appState.beforeAfter.beforeImg = document.getElementById('adm-ba-before-url').value;
+            window.appState.beforeAfter.afterImg = document.getElementById('adm-ba-after-url').value;
+            window.saveState();
+            showToast("تم حفظ رابط صور قبل وبعد!");
+        };
+
+        window.handleSaveOfferBanner = function(e) {
+            e.preventDefault();
+            window.appState.offer.active = document.getElementById('adm-offer-active').checked;
+            window.appState.offer.textAr = document.getElementById('adm-offer-text-ar').value;
+            window.appState.offer.textEn = document.getElementById('adm-offer-text-en').value;
+            window.saveState();
+            showToast("تم حفظ إعدادات العرض!");
+        };
+
+        window.handleSavePricing = function(e) {
+            e.preventDefault();
+            const p = window.appState.pricing;
+            p.p1Price = parseInt(document.getElementById('adm-p1-price').value);
+            p.p1Desc = document.getElementById('adm-p1-desc').value;
+            p.p2Price = parseInt(document.getElementById('adm-p2-price').value);
+            p.p2Desc = document.getElementById('adm-p2-desc').value;
+            p.p3Price = parseInt(document.getElementById('adm-p3-price').value);
+            p.p3Desc = document.getElementById('adm-p3-desc').value;
+
+            window.saveState();
+            showToast("تم تحديث أسعار الباقات!");
+        };
+
+        function renderAdminLeadsTable() {
+            const table = document.getElementById('admin-leads-table');
+            const badge = document.getElementById('leads-count-badge');
+            if (!table) return;
+
+            if (badge) {
+                if (window.appState.leads.length > 0) {
+                    badge.innerText = window.appState.leads.length;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            }
+
+            table.innerHTML = '';
+            if (window.appState.leads.length === 0) {
+                table.innerHTML = `<tr><td colspan="6" class="text-center p-6 text-stone-500">لا توجد طلبات معاينة واردة حتى الآن</td></tr>`;
+                return;
+            }
+
+            window.appState.leads.forEach(lead => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-dark-900/50 transition';
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-white">${lead.name}</td>
+                    <td class="p-3 font-mono text-gold-400" dir="ltr">${lead.phone}</td>
+                    <td class="p-3">${lead.location}</td>
+                    <td class="p-3">${lead.service}</td>
+                    <td class="p-3 text-stone-400">${lead.date}</td>
+                    <td class="p-3 text-center flex justify-center gap-2">
+                        <a href="https://wa.me/${lead.phone}" target="_blank" class="bg-green-600 hover:bg-green-500 text-white p-1.5 rounded-lg text-xs" title="فتح الواتساب">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <button onclick="window.deleteLead('${lead.id}')" class="bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white p-1.5 rounded-lg text-xs">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                table.appendChild(tr);
+            });
+        }
+
+        window.deleteLead = function(id) {
+            window.appState.leads = window.appState.leads.filter(l => l.id !== id);
+            window.saveState();
+            renderAdminLeadsTable();
+            showToast("تم حذف الطلب");
+        };
+
+        window.handleChangePassword = function(e) {
+            e.preventDefault();
+            const newPass = document.getElementById('adm-new-pass').value;
+            if (newPass) {
+                window.appState.settings.adminPassword = newPass;
+                window.saveState();
+                showToast("تم تغيير كلمة المرور بنجاح!");
+                e.target.reset();
+            }
+        };
+
+        window.exportBackupJSON = function() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(window.appState, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `outline_backup_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        };
+
+        window.importBackupJSON = function(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const imported = JSON.parse(e.target.result);
+                        window.appState = imported;
+                        window.saveState();
+                        showToast("تمت استعادة البيانات بنجاح!");
+                        renderAdminDashboard();
+                    } catch(err) {
+                        showToast("ملف غير صالح!");
+                    }
+                };
+                reader.readAsText(input.files[0]);
+            }
+        };
+
+        window.resetToFactoryDefaults = function() {
+            if (confirm("هل أنت تأكد من إعادة ضبط المصنع ومسح التعديلات؟")) {
+                window.appState = JSON.parse(JSON.stringify(defaultState));
+                window.saveState();
+                renderAdminDashboard();
+                showToast("تمت إعادة ضبط المصنع");
+            }
+        };
+
+        // TAB SWITCHER
+        window.switchAdminTab = function(tabName, btn) {
+            document.querySelectorAll('.admin-tab-btn').forEach(b => {
+                b.className = 'admin-tab-btn text-stone-300 hover:text-white bg-dark-900 border border-stone-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 relative';
+            });
+            btn.className = 'admin-tab-btn active bg-gold-500 text-stone-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 relative';
+
+            document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+            const target = document.getElementById(`admin-tab-${tabName}`);
+            if (target) target.classList.remove('hidden');
+        };
+
+        // LANGUAGE SYSTEM TOGGLE
+        window.toggleLanguage = function() {
+            window.currentLang = window.currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('outline_lang', window.currentLang);
+            setupLanguage();
+        };
+
+        function setupLanguage() {
+            const lang = window.currentLang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            document.getElementById('lang-btn-label').innerText = lang === 'ar' ? 'English' : 'عربي';
+            document.getElementById('mobile-lang-btn-label').innerText = lang === 'ar' ? 'Switch to English' : 'التحويل للعربية';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dictionary[lang] && dictionary[lang][key]) {
+                    el.innerText = dictionary[lang][key];
+                }
+            });
+
+            renderClientSections();
+        }
+
+        window.toggleMobileMenu = function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        };
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
